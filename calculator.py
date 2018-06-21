@@ -16,6 +16,7 @@ add = False
 sub = False
 mult = False
 div = False
+count = 0
 
 while(True):
     x = input('Enter an equation')
@@ -32,18 +33,29 @@ while(True):
             sys.exit()
         elif (ord(x[i]) == 43):
             add = True
+            count += 1
         elif (ord(x[i]) == 45):
             sub = True
+            count += 1
         elif (ord(x[i]) == 42):
             mult = True
+            count += 1
         elif (ord(x[i]) == 47):
             div = True
+            count += 1
 
     """
     These next four if statements are where the computation occurs.
     At this point the input has been checked as valid input, the
     operator that was given was choosen. 
     """
+    if (count > 1):
+        print('ERROR: Given too many operators.')
+        sys.exit()
+        
+    elif(count < 1):
+        print('Answer:', x)
+        
     if (add == True):
         x = x.split('+')
         x = int(x[0]) + int(x[1])
@@ -59,11 +71,12 @@ while(True):
     elif (mult == True):
         x = x.split('*')
         x = int(x[0]) * int(x[1])
-        print('Answer', x)
+        print('Answer:', x)
         mult = False
     
     elif (div == True):
         x = x.split('/')
         x = int(x[0]) / int(x[1])
-        print('Answer', x)
+        print('Answer:', x)
         div = False
+    count = 0
