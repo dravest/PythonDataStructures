@@ -4,7 +4,7 @@
     File Name: queue.py
     Description:
         This class is an implementation of a queue using a
-        simple cirrcular array. The head and tail points are
+        simple circular array. The head and tail points are
         set to -1 to indicate the queue is empty.
 '''
 
